@@ -11,7 +11,7 @@ Wowza Streaming Engine 4.0.0 or later is required.
 This module provides the following functionality:
 
 * Use query parameters added to the stream URLs to tell the server which tracks to select in a VOD file.
-* Use audioindex, videoindex, and dataindex parameter values to specify an index for each track type.
+* Use **audioindex**, **videoindex**, and **dataindex** parameters to specify an index value for each track type.
 
 ## More resources
 
