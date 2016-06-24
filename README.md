@@ -1,6 +1,6 @@
 # MultiTrackVOD
 
-MultiTrackVOD is a module for [Wowza Streaming Engine™ media server software](https://www.wowza.com/products/streaming-engine) that can be used to configure which tracks are sent to the player.  
+The **MultiTrackVOD** module for [Wowza Streaming Engine™ media server software](https://www.wowza.com/products/streaming-engine) can be used to configure which tracks are sent to the player.  
 
 ## Prerequisites
 
@@ -10,10 +10,10 @@ Wowza Streaming Engine 4.0.0 or later is required.
 
 This module provides the following functionality:
 
-* The module uses query parameters that are added to the stream URLs to tell the server which tracks to select.
-* You can specify audioindex, videoindex, and dataindex to identify an index for each track type.
+* Use query parameters added to the stream URLs to tell the server which tracks to select in a VOD file.
+* Use audioindex, videoindex, and dataindex parameter values to specify an index for each track type.
 
-## API Reference
+## More resources
 
 [Wowza Streaming Engine Server-Side API Reference](https://www.wowza.com/resources/WowzaStreamingEngine_ServerSideAPI.pdf)
 
