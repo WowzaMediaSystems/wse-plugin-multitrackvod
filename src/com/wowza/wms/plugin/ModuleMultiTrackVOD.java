@@ -4,9 +4,10 @@
  */
 package com.wowza.wms.plugin;
 
-import com.wowza.wms.application.*;
+import com.wowza.wms.application.IApplicationInstance;
+import com.wowza.wms.application.WMSProperties;
 import com.wowza.wms.mediareader.h264.MediaReaderH264;
-import com.wowza.wms.module.*;
+import com.wowza.wms.module.ModuleBase;
 import com.wowza.wms.stream.IMediaReader;
 import com.wowza.wms.stream.IMediaReaderActionNotify;
 import com.wowza.wms.stream.IMediaStream;
@@ -15,24 +16,24 @@ public class ModuleMultiTrackVOD extends ModuleBase implements IMediaReaderActio
 {
 	public static final String MODULE_NAME = "ModuleMultiTrackVOD";
 	public static final String PROP_NAME_PREFIX = "multiTrackVOD";
-    public static final String PROPERTY_AUDIOINDEX = "audioindex";
-    public static final String PROPERTY_VIDEOINDEX = "videoindex";
-    public static final String PROPERTY_DATAINDEX = "dataindex";
-    public static final String PROPERTY_INDEXES[] = {"audioindex", "videoindex", "dataindex"};
+	public static final String PROPERTY_AUDIOINDEX = "audioindex";
+	public static final String PROPERTY_VIDEOINDEX = "videoindex";
+	public static final String PROPERTY_DATAINDEX = "dataindex";
+	public static final String PROPERTY_INDEXES[] = { "audioindex", "videoindex", "dataindex" };
 
-	public static final String MULTI_TRACK_VOD_RANDOM_ACCESS_READER_CLASS = "com.wowza.wms.plugin.collection.mediareaders.RandomAccessReaderMultiTrackVOD";
-	
+	public static final String MULTI_TRACK_VOD_RANDOM_ACCESS_READER_CLASS = "com.wowza.wms.plugin.RandomAccessReaderMultiTrackVOD";
+
 	public void onAppStart(IApplicationInstance appInstance)
 	{
 		String randomAccessReaderClass = appInstance.getMediaReaderProperties().getPropertyStr("randomAccessReaderClass");
-		if(!MULTI_TRACK_VOD_RANDOM_ACCESS_READER_CLASS.equals(randomAccessReaderClass))
+		if (!MULTI_TRACK_VOD_RANDOM_ACCESS_READER_CLASS.equals(randomAccessReaderClass))
 		{
 			appInstance.getMediaReaderProperties().setProperty("randomAccessReaderClass", MULTI_TRACK_VOD_RANDOM_ACCESS_READER_CLASS);
 		}
 		appInstance.getProperties().setProperty(PROP_NAME_PREFIX + "RandomAccessReaderClass", randomAccessReaderClass);
 		appInstance.addMediaReaderListener(this);
 	}
-	
+
 	@Override
 	public void onMediaReaderCreate(IMediaReader mediaReader)
 	{
@@ -47,7 +48,7 @@ public class ModuleMultiTrackVOD extends ModuleBase implements IMediaReaderActio
 	public void onMediaReaderOpen(IMediaReader mediaReader, IMediaStream stream)
 	{
 		WMSProperties props = stream.getProperties();
-		if(mediaReader instanceof MediaReaderH264)
+		if (mediaReader instanceof MediaReaderH264)
 		{
 			int audioIndex = props.getPropertyInt(PROPERTY_AUDIOINDEX, -1);
 			if (audioIndex > -1)
