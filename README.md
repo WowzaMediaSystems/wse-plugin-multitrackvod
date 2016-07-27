@@ -30,3 +30,5 @@ To use the compiled version of this module, see [How to select multiple tracks f
 ## License
 
 This code is distributed under the [Wowza Public License](https://github.com/WowzaMediaSystems/wse-plugin-multitrackvod/blob/master/LICENSE.txt).
+
+![alt tag](http://wowzalogs.com/stats/githubimage.php?plugin=wse-plugin-multitrackvod)
