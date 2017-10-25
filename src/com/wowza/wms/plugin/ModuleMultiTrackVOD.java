@@ -6,6 +6,7 @@ package com.wowza.wms.plugin;
 
 import com.wowza.wms.application.IApplicationInstance;
 import com.wowza.wms.application.WMSProperties;
+import com.wowza.wms.logging.WMSLoggerFactory;
 import com.wowza.wms.mediareader.h264.MediaReaderH264;
 import com.wowza.wms.module.ModuleBase;
 import com.wowza.wms.stream.IMediaReader;
@@ -32,6 +33,7 @@ public class ModuleMultiTrackVOD extends ModuleBase implements IMediaReaderActio
 		}
 		appInstance.getProperties().setProperty(PROP_NAME_PREFIX + "RandomAccessReaderClass", randomAccessReaderClass);
 		appInstance.addMediaReaderListener(this);
+		WMSLoggerFactory.getLoggerObj(appInstance).info(MODULE_NAME + " version 2");
 	}
 
 	@Override

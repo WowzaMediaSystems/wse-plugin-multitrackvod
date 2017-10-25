@@ -1,0 +1,5 @@
+Build 2
+	Added support for special character decoding
+	
+Build 1
+	Initial commit

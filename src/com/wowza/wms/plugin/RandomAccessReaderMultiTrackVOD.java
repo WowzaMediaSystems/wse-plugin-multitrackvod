@@ -54,10 +54,18 @@ public class RandomAccessReaderMultiTrackVOD implements IRandomAccessReader, ITr
 		reader = getReader(appInstance);
 		try
 		{
+			System.out.println("Decoding mediaName: " + mediaName);
+			
+			mediaName = mediaName.replaceAll("%(?![0-9a-fA-F]{2})", "%25");
+			mediaName = mediaName.replaceAll("\\+", "%2B");
 			mediaName = URLDecoder.decode(mediaName, "UTF-8");
 		}
 		catch (UnsupportedEncodingException e)
 		{
+		}
+		catch (Exception e)
+		{
+			WMSLoggerFactory.getLoggerObj(appInstance).warn(CLASS_NAME + ".init() Cannot url decode media name: " + mediaName + ". Error: " + e.getMessage());
 		}
 //		System.out.println("RandomAccessReaderMultiTrackVOD.init() mediaName: " + mediaName);
 		if (appInstance.getMediaReaderContentType(mediaExtension) != IMediaReader.CONTENTTYPE_MEDIALIST) // SMIL
