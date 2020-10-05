@@ -30,4 +30,4 @@ Wowza Media Systems™ provides developers with a platform to create streaming a
 
 ## License
 
-This code is distributed under the [Wowza Public License](https://github.com/WowzaMediaSystems/wse-plugin-multitrackvod/blob/master/LICENSE.txt).
+This code is distributed under the [Wowza Public License](/LICENSE.txt).
